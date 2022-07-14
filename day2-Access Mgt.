@@ -1,5 +1,44 @@
 # day2
 
+DocumentRoot /var/www/lw
+
+<Directory "/var/www/lw">
+#Require all  granted
+#Require all denied
+#called Directives in httpd program
+
+
+
+#<RequireAll>
+#Require all granted
+#Require not ip 103.59.75.90
+#</requireAll>
+
+
+#order deny,allow
+#deny from 157.38.138.228
+#allow from 103.59.75.90
+
+
+
+require expr "%{HTTP_USER_AGENT} =~ /curl.*/"
+
+
+<IFDefine IgnoreTheseDirectivesForNow>
+<If "%{HTTP_USER_AGENT} == 'curl/7.83.1'" >
+        Require all denied
+</If>
+
+
+
+
+
+
+<If "%{HTTP_USER_AGENT} =~ /curl.*/" >
+        Require all denied
+</If>
+
+
 
 
 <if "%{TIME_HOUR} -gt 15  && %{TIME_HOUR} -lt 10" >
