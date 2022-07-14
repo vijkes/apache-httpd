@@ -1,0 +1,46 @@
+# day2
+
+
+
+<if "%{TIME_HOUR} -gt 15  && %{TIME_HOUR} -lt 10" >
+        Require all denied
+
+</IF>
+
+
+
+
+
+<if "%{TIME_MIN} < 5  && %{TIME_MIN} -gt 1" >
+        Require all denied
+
+</IF>
+
+<if "%{TIME_SEC} < 5  && %{TIME_SEC} -gt 1" >
+        Require all denied
+
+</IF>
+
+
+
+<if "-R '103.59.75' ">
+        Require all denied
+</if>
+
+Require all denied
+
+</IFDefine>
+
+
+<if "%{REQUEST_URI} in {'/vimal.html' , '/keshav.html', 'hi.html' } ">
+        Require all denied
+</if>
+
+<if "%{QUERY_STRING} =~ /mydata=lenovo.*/ ">
+# require all denied
+        ForceType text/plain
+</if>
+
+
+
+</Directory>
